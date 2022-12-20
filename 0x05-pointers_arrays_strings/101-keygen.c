@@ -1,24 +1,26 @@
+#include "main.h"
+
 /**
- * _atoi - converts a string to an integer
- *
- * @s: string input parameter
- *
- * Return: converted integer from string
-*/
-
-int _atoi(char *s)
+ * print_number - prints an integer
+ * @n: integer to be printed
+ */
+void print_number(int n)
 {
-	unsigned int num = 0;
-	int sign = 1;
+	unsigned int n1;
 
-	do {
-		if (*s == '-')
-			sign *= -1;
-		else if (*s >= '0' && *s <= '9')
-			num = (num * 10) + (*s - '0');
-		else if (num > 0)
-			break;
-	} while (*s++);
+	if (n < 0)
+	{
+		n1 = -n;
+		_putchar('-');
+	} else
+	{
+		n1 = n;
+	}
 
-	return (num * sign);
+	if (n1 / 10)
+	{
+		print_number(n1 / 10);
+	}
+
+	_putchar((n1 % 10) + '0');
 }
